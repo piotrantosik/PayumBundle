@@ -30,17 +30,17 @@ It is the route of url you will be redirected after capture done its job. Let's 
 
         if ($status->isSuccess()) {
             $this->getUser()->addCredits(100);
-            $this->getRequest()->getSession()->getFlashBag()->set(
+            $request->getSession()->getFlashBag()->set(
                 'notice',
                 'Payment success. Credits were added'
             );
         } else if ($status->isPending()) {
-            $this->getRequest()->getSession()->getFlashBag()->set(
+            $this$request->getSession()->getFlashBag()->set(
                 'notice',
                 'Payment is still pending. Credits were not added'
             );
         } else {
-            $this->getRequest()->getSession()->getFlashBag()->set('error', 'Payment failed');
+            $request->getSession()->getFlashBag()->set('error', 'Payment failed');
         }
 
         return $this->redirect('homepage');
